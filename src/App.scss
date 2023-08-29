@@ -1,6 +1,8 @@
 $header-height: 60px;
 $sidebar-width: 300px;
 
+@import './index.scss';
+
 .todo {
     display: grid;
     grid-template-rows: $header-height calc(100vh - $header-height);
@@ -14,7 +16,7 @@ $sidebar-width: 300px;
 
         grid-row: 1/2;
         grid-column: 1/-1;
-        background-color: red;
+        // background-color: red;
     }
 
     &__sidebar {
@@ -25,7 +27,7 @@ $sidebar-width: 300px;
 
         grid-row: 2/-1;
         grid-column: 1/2;
-        background-color: blue;
+        // background-color: blue;
     }
 
     &__content {
@@ -36,6 +38,37 @@ $sidebar-width: 300px;
 
         grid-row: 2/-1;
         grid-column: 2/-1;
-        background-color: deeppink;
+        // background-color: deeppink;
+    }
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    
+    background-color: $primary;
+    height: &$header-height;
+    padding: 5px 20px;
+
+
+    &__logo {
+        display: flex;
+        cursor: pointer;
+        font-size: 24px;
+        color:$white;
+    }
+
+    &__text {
+        flex: 1;
+        color: $white;
+
+        & > h1 {
+            font-size: 2.4rem;
+        }
+    }
+
+    &__search {
+        min-width: 300px;
     }
 }

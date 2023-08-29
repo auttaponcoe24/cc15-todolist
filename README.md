@@ -39,7 +39,29 @@ restructure folder to app/ component/
 
 ไฟล์ index.scss : เขียน css rule เพื่อลบ default padding,margin ต่างๆ รวมถึงวิธีการวัดขนาดของ Box-model
 
+```css
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+html {
+	font-size: 62.5%; /*equal font-size : 10px*/
+}
+
+body {
+	box-sizing: border-box;
+}
+```
+
 ไฟล์ index.scss : ทำการเพิ่ม font หลักของ application (Nunito) ลงใน tag body
+
+```css
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&family=Source+Sans+Pro:wght@400;600;700&display=swap");
+```
 
 #### 4.5 : Color
 
@@ -50,15 +72,18 @@ knowledge : scss มีความสามารถในการสร้า
 วาง layout ของหน้าหลัก (ในที่นี้เรามี 1 หน้า)
 ในไฟล์ App.js วาง markup สำหรับทำ layout
 
-   <div className='todo'>
-        <div className="todo__header">Header</div>
-        <div className="todo__sidebar">SideBar</div>
-        <div classNAme="todo_content">TodoContent</div>
-    </div>
+```jsx
+<div className="todo">
+	<div className="todo__header">Header</div>
+	<div className="todo__sidebar">SideBar</div>
+	<div classNAme="todo_content">TodoContent</div>
+</div>
+```
 
 สร้างไฟล์ App.scss
 ไฟล์ App.scss : เขียน css สำหรับจัด layout
 
+```jsx
 $header-height: 44px;
 $sidebar-width: 300px;
 
@@ -89,15 +114,80 @@ grid-template-columns: $sidebar-width calc(100vw - $sidebar-width);
     }
 
 }
+```
 
 ไฟล์ App.scss : ปรับนามสกุลไฟล์ เป็น App.module.scss
 หากมี error จากการหา variable ไม่เจอ : ให้ import global css เข้ามาใช้งาน
 ไฟล์ App.jsx : implement styles ลงไฟล์ App.jsx
 
-import styles from 'App.module.scss';
+```jsx
+import styles from "App.module.scss";
 
 <div className={styles.todo}>
-    <div className={styles.todo__header}>Header</div>
-    <div className={styles.todo__sidebar}>SideBar</div>
-    <div classNAme={styles.todo__content}>TodoContent</div>
+	<div className={styles.todo__header}>Header</div>
+	<div className={styles.todo__sidebar}>SideBar</div>
+	<div classNAme={styles.todo__content}>TodoContent</div>
 </div>;
+```
+
+# 5 : UI-TASK
+
+5.1 : AppBar or HeaderComponent
+preview
+![header](./images/header.png)
+
+ติดตั้ง library สำหรับทำ icon : npm install react-icons link to npm ,link to document
+
+สร้างไฟล์ Header.jsx สำหรับทำ Header
+
+```jsx
+<header className="header">
+	{/* Logo */}
+	<div className="header__logo"></div>
+
+	{/* Text */}
+	<div className="header__text">
+		<h3>Todoist</h3>
+	</div>
+
+	{/* Search */}
+	<div className="header__search"></div>
+</header>
+```
+
+สร้างไฟล์ Header.module.scss สำหรับ css
+
+// import global.scss
+
+```scss
+.header {
+	background-color: $primary;
+	color: $grey-light;
+	padding: 0.5rem 2rem;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+
+	&__logo {
+		display: flex;
+		cursor: pointer;
+		font-size: 24px;
+	}
+
+	&__text {
+		flex: 1;
+	}
+	&__search {
+		min-width: 300px;
+	}
+}
+```
+
+import styles มาใช้ใน JSX
+implement styles กับ className
+
+```jsx
+import styles from "./Header.module.scss";
+```
+
+// implement styles กับ className
