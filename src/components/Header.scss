@@ -27,33 +27,32 @@
     }
 
     &__search {
-        // max-width: 300px;
-        flex-basis: 300px;
+        max-width: 300px;
     }
 }
 
-// .search {
-//     position: relative;
+.search {
+    position: relative;
 
-//     &__icon {
-//         position: absolute;
-//         left: 7px;
-//         top: 50%;
-//         transform: translateY(-50%);
+    &__icon {
+        position: absolute;
+        left: 7px;
+        top: 50%;
+        transform: translateY(-50%);
 
-//         font-size: 1.4rem;
-//         color: $grey-dark;
-//         display: flex;
-//     }
+        font-size: 1.4rem;
+        color: $grey-dark;
+        display: flex;
+    }
 
-//     &__input {
-//         width: 100%;
-//         padding: 5px;
-//         padding-left: 30px;
-//         border-radius: 5px;
-//         border: 1px solid $grey-light;
-//         font-size: 1.6rem;
-//         outline: none;
-//         color: $grey-dark;
-//     }
-// }
+    &__input {
+        width: 100%;
+        padding: 5px;
+        padding-left: 30px;
+        border-radius: 5px;
+        border: 1px solid $grey-light;
+        font-size: 1.6rem;
+        outline: none;
+        color: $grey-dark;
+    }
+}
