@@ -1,7 +1,11 @@
+import "./App.scss";
+
 function App() {
 	return (
-		<div>
-			<h1>App</h1>
+		<div className="todo">
+			<div className="todo__header">Header</div>
+			<div className="todo__sidebar">SideBar</div>
+			<div className="todo__content">TodoContent</div>
 		</div>
 	);
 }
