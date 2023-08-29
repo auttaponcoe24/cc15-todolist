@@ -21,3 +21,27 @@ clean up App.js, App.css
 clean up public/index.html
 remove unnecessary file
 restructure folder to app/ component/
+
+# 4 : CSS setup
+
+#### 4.1 : ติดตั้ง scss
+
+ติดตั้ง sass เพื่อช่วยให้การเขียน CSS แบบ BEM สะดวกมากขึ้น
+รันคำสั่ง npm install sass ลงใน terminal (อย่าลืม check path ว่าอยู่ที่ root project แล้ว : ตำแหน่งที่มี file package.json)
+ตรวจสอบ dependencies ในไฟล์ package.json ว่ามี sass แล้ว
+
+#### 4.2 : setup index.scss
+
+ไฟล์ index.css : ให้แปลงนามสกุลไฟล์ เป็น index.scss
+ไฟล์ index.js : เปลี่ยนการ import จาก index.css เป็น index.scss
+
+#### 4.3 : CSS Global Reset
+
+ไฟล์ index.scss : เขียน css rule เพื่อลบ default padding,margin ต่างๆ รวมถึงวิธีการวัดขนาดของ Box-model
+
+ไฟล์ index.scss : ทำการเพิ่ม font หลักของ application (Nunito) ลงใน tag body
+
+#### 4.5 : Color
+
+knowledge : scss มีความสามารถในการสร้างตัวแปรไว้ใช้ได้
+ไฟล์ index.scss : สร้างตัวแปรสำหรับเก็บสีหลักๆของ web-application
