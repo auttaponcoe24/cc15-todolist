@@ -41,7 +41,14 @@ function App() {
         let res = await fetch('http://localhost:8080/api/todos', {method: 'GET'});
         let todoData = await res.json();
         console.log(todoData);
-        setAllTodos(todoData.todos)
+        
+        const newTodoLists = todoData.todos.map((todo) => {
+          const newTodo = {...todo, due_date: todo.date};
+          delete todo.date;
+          return newTodo;
+        })
+
+        setAllTodos(newTodoLists)
       }catch (err) {
         console.log(err);
       }
